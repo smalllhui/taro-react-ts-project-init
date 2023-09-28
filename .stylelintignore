@@ -1,0 +1,7 @@
+# .stylelintrc忽略校验
+/node_modules/*
+/dist/*
+/public/*
+/__tests__/*
+/.husky/*
+/.swc/*

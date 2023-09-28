@@ -1,0 +1,4 @@
+# .prettierrc忽略校验
+__tests__/
+node_modules/
+dist/

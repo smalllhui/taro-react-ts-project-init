@@ -60,6 +60,7 @@ export default defineConfig(async (merge, { command, mode }) => {
       },
     },
     h5: {
+      esnextModules: ['taro-ui'],
       devServer: { port: 4563, host: '0.0.0.0' },
       publicPath: '/',
       staticDirectory: 'static',

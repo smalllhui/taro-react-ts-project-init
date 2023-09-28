@@ -20,6 +20,7 @@ module.exports = {
   ],
   // 覆盖配置（优先级大于config-standard）
   rules: {
+    'selector-type-no-unknown': null,// 关闭未知类型报错 如小程序page
     'no-empty-source': null, // 关闭禁止空源码
     'block-no-empty': null,// 禁止空块
     'selector-class-pattern': null,// 关闭强制选择器类名的格式

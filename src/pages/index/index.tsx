@@ -39,7 +39,11 @@ export default function Index() {
       <AtButton onClick={onQueryMovieList}>获取电影列表</AtButton>
       <View>
         {testStore.movieList.map((movie, index) => {
-          return <Text key={index}>{movie.title}</Text>
+          return (
+            <View key={index}>
+              <Text>{movie.title}</Text>
+            </View>
+          )
         })}
       </View>
     </View>

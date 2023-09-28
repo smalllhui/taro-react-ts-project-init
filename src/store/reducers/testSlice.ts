@@ -1,39 +1,11 @@
 // /store/reducers/testSlice.ts
 import { createAsyncThunk, createSlice, Draft, PayloadAction } from '@reduxjs/toolkit'
-
+import { getMovieList } from '@/api/movieApi'
 // 数据接口列席
 interface ICountState {
   count: number
   movieList: any[]
   total: number
-}
-
-//电影API
-const MovieAPI = {
-  /**
-   * 请求电影列表
-   */
-  getMovieListApi: () => {
-    // https://pcw-api.iqiyi.com/search/recommend/list?channel_id=1&data_type=1&mode=24&page_id=1&ret_num=48
-    return new Promise(resolve => {
-      const data = {
-        code: 'A00000',
-        data: {
-          list: [
-            {
-              playUrl: 'http://www.iqiyi.com/v_1s73dt9ar18.html',
-              payMarkUrl: 'http://pic0.iqiyipic.com/common/20171106/ac/1b/vip_100000_v_601.png',
-              imageUrl: 'http://pic5.iqiyipic.com/image/20230920/b3/d6/v_170545194_m_601_m12.jpg',
-              title: '绝地追击',
-            },
-          ],
-        },
-      }
-      setTimeout(() => {
-        resolve(data)
-      }, 1000)
-    })
-  },
 }
 
 // thunk函数允许执行异步逻辑, 通常用于发出异步请求。
@@ -42,7 +14,7 @@ const MovieAPI = {
 export const getMovieData = createAsyncThunk('movie/getMovie', async (params: { pageSize: number }) => {
   console.log('传递参数')
   console.log(params)
-  const res = await MovieAPI.getMovieListApi()
+  const res = await getMovieList(params.pageSize)
   return res
 })
 
